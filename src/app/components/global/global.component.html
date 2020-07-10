@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div *ngIf="globalStats.statistic_taken_at!==undefined">
+    <div class="uk-card uk-card-default uk-card-body uk-animation-slide-top" 
+       style="padding: 20px !important;background-color: cadetblue;color: white;">
+       <p class="uk-text-center mono" style="">Corona Cases as on {{globalStats.statistic_taken_at}}</p>
+    </div>
+</div>
+<div class="uk-padding">
+    
+    <div class="uk-text-center" uk-grid>
+        <div class="uk-width-1-5">
+            <div class="uk-card uk-card-default uk-card-body boxShadow">
+                <p class="mono">Total Cases</p>
+                <p>{{globalStats.total_cases}}</p>
+            </div>
+        </div>
+        <div class="uk-width-1-5">
+            <div class="uk-card uk-card-default uk-card-body boxShadow">
+                <p class="mono">Active Cases</p>
+                <p>{{globalStats.active_cases}}</p>
+            </div>
+        </div>
+        <div class="uk-width-1-5">
+            <div class="uk-card uk-card-default uk-card-body boxShadow">
+                <p class="mono">Recovered</p>
+                <p>{{globalStats.total_recovered}}</p>
+            </div>
+        </div>
+        <div class="uk-width-1-5">
+            <div class="uk-card uk-card-default uk-card-body boxShadow">
+                <p class="mono">Serious</p>
+                <p>{{globalStats.serious_critical}}</p>
+            </div>
+        </div>
+        <div class="uk-width-1-5">
+            <div class="uk-card uk-card-default uk-card-body boxShadow">
+                <p class="mono">Deaths</p>
+                <p>{{globalStats.total_deaths}}</p>
+            </div>
+        </div>
+    </div>
+</div>

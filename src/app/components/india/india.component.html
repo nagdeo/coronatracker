@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<div style="padding:5rem 11rem;">
+    <input type="input" class="uk-align-center search" placeholder="Search State" name="name" id='name'
+    (input)="dt.filterGlobal($event.target.value,'contains')" />
+ 
+<!-- <table class="uk-table uk-table-striped" style="border: 1px solid #efefef;">
+    <thead>
+        <tr style="background-color: black;color: white !important;" >
+            <th class="uk-text-lead">State</th>
+            <th class="uk-text-lead">Cases</th>
+            <th class="uk-text-lead">Recovered</th>
+            <th class="uk-text-lead">Deaths</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr  *ngFor="let cases of indiaCases; let i=index;">  
+            <td *ngIf="i<35">{{cases.name}}</td>
+            <td *ngIf="i<35">{{cases.cases}}</td>
+            <td *ngIf="i<35">{{cases.recovered}}</td>
+            <td *ngIf="i<35">{{cases.deaths}}</td>
+        </tr>
+        
+    </tbody>
+</table> -->
+<p-table #dt [columns]="cols" [value]="indiaCases" [responsive]="true" [scrollable]="true" scrollHeight="304px"
+>
+
+<ng-template pTemplate="header" let-columns>
+  <tr>
+    <th *ngFor="let col of columns">
+      {{col.header}}
+    </th>
+  </tr>
+</ng-template>
+<ng-template pTemplate="body" let-rowData let-columns="columns">
+  <tr>
+    <td class="countryGroup" *ngFor="let col of columns">
+      <span class="ui-column-title">{{col.header}}</span>
+      <span class="ui-g">
+        {{rowData[col.field]}}
+      </span>
+    </td>
+  </tr>
+</ng-template>
+</p-table>
+</div>
