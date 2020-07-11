@@ -10,7 +10,8 @@ import { GlobalComponent } from './components/global/global.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {FormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
-import { ChartsModule } from 'ng2-charts'
+import { ChartsModule } from 'ng2-charts';
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,15 @@ import { ChartsModule } from 'ng2-charts'
     HttpClientModule,
     FormsModule,
     TableModule,
-    ChartsModule
+    ChartsModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+        backdropBackgroundColour: 'rgba(0,0,0,0.1)', 
+        backdropBorderRadius: '4px',
+        primaryColour: '#ffffff', 
+        secondaryColour: '#ffffff', 
+        tertiaryColour: '#ffffff'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

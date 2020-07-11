@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CoronaserviceService } from 'src/app/coronaservice.service';
-
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 @Component({
   selector: 'app-global',
   templateUrl: './global.component.html',
@@ -9,6 +9,7 @@ import { CoronaserviceService } from 'src/app/coronaservice.service';
 export class GlobalComponent implements OnInit {
 
   globalStats:any=[];
+  loading:boolean=true;
   constructor(public corona:CoronaserviceService) { }
   pieChartLabels =  ['Total Cases', 'Active Cases', 'Recovered', 'Serious', 'Deaths'];
 pieChartColor:any = [
@@ -37,6 +38,7 @@ pieChartData:any = [
   getGlobalStats(){
     this.corona.getGlobalStats().subscribe((res: any) => {
       this.globalStats=res;
+      this.loading=false;
       let re = /\,/gi;
       console.log(this.globalStats.total_cases.replace(re, ''));
       let total=this.globalStats.total_cases.replace(re, '')+this.globalStats.active_cases.replace(re, '')+

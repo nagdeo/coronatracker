@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <div style="padding:5rem 11rem;">
-    <input type="input" class="uk-align-center search" placeholder="Search State" name="name" id='name'
+    <input type="input" class="uk-align-center search" style="position: absolute;top: 1.5rem;right: 1rem;border-radius: 5px;"
+     placeholder="Search State" name="name" id='name'
     (input)="dt.filterGlobal($event.target.value,'contains')" />
 
 <p-table #dt [columns]="cols" [value]="indiaCases" [responsive]="true" [scrollable]="true" scrollHeight="304px"

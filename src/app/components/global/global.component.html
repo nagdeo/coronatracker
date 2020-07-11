@@ -1,3 +1,4 @@
+<div #customLoadingTemplate>
 <app-navbar></app-navbar>
 <div *ngIf="globalStats.statistic_taken_at!==undefined">
     <div class="uk-card uk-card-default uk-card-body uk-animation-slide-top" 
@@ -65,5 +66,7 @@
         <img class="uk-animation-slide-right" style="margin-top: 15%;width: 60%;height: 30%;border-radius: 10px;" src="/assets/shake.png">
     </div>
 </div>
+</div>
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
 
 
