@@ -5,3 +5,8 @@
 .mono{
     font-family: monospace;
 }
+@media screen and (max-width: 600px) and (min-width: 320px) {
+    .uk-card {
+      width: 100%;
+    }
+  }

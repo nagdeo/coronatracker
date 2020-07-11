@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { ChartsModule } from 'ng2-charts';
 import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
+import { NgMarqueeModule } from 'ng-marquee';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
         primaryColour: '#ffffff', 
         secondaryColour: '#ffffff', 
         tertiaryColour: '#ffffff'
-    })
+    }),
+    NgMarqueeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

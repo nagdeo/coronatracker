@@ -11,6 +11,9 @@ export class IndiaComponent implements OnInit {
   indiaCases:any=[];
   stateIndia:any;
   cnt=0;
+  loading:boolean=true;
+  state:any=[];
+  stateBool:boolean=false;
   cols: { field: string; header: string; }[];
   constructor(public corona:CoronaserviceService) { }
 
@@ -32,6 +35,7 @@ export class IndiaComponent implements OnInit {
           this.indiaCases.push(element);
         }
       });
+      this.loading=false;
       
     });
   }
@@ -42,5 +46,14 @@ export class IndiaComponent implements OnInit {
   // }
   
  // }
+   displayState(state){
+     console.log(state);
+     this.state=state;
+     this.stateBool=true;
+   }
+   NoneStates(){
+     
+     this.stateBool=false;
+   }
 
 }

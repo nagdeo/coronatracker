@@ -1,10 +1,11 @@
 <app-navbar></app-navbar>
-<div style="padding:5rem 11rem;">
-    <input type="input" class="uk-align-center search" style="position: absolute;top: 1.5rem;right: 1rem;border-radius: 5px;"
+<div  #customLoadingTemplate>
+  <div style="background-color: azure;display: none;" [ngClass]="{'block':loading===false}">
+    <!-- <input type="input" class="uk-align-center search" style="position: absolute;top: 1.5rem;right: 1rem;border-radius: 5px;"
      placeholder="Search State" name="name" id='name'
-    (input)="dt.filterGlobal($event.target.value,'contains')" />
+    (input)="dt.filterGlobal($event.target.value,'contains')" /> -->
 
-<p-table #dt [columns]="cols" [value]="indiaCases" [responsive]="true" [scrollable]="true" scrollHeight="304px"
+<!-- <p-table #dt [columns]="cols" [value]="indiaCases" [responsive]="true" [scrollable]="true" scrollHeight="304px"
 >
 
 <ng-template pTemplate="header" let-columns>
@@ -24,5 +25,43 @@
     </td>
   </tr>
 </ng-template>
-</p-table>
+</p-table>  -->
+
+<!-- <div class="uk-child-width-1-4 uk-grid-small uk-text-center" uk-grid>
+  <div *ngFor="let state of indiaCases;let i=index;">
+      <div class="uk-card uk-card-default uk-card-body boxShadow hoverBox uk-animation-slide-left" *ngIf="i<35">
+          <p class="ellip">{{state.name}}</p>
+          <p><b>Cases :</b>{{state.cases}}</p>
+          <p><b>Recovered : </b>{{state.recovered}}</p>
+          <p><b>Deaths : </b>{{state.deaths}}</p>
+      </div>
+  </div>
 </div>
+</div> -->
+     <ng-marquee speed="drowsy" duration="150s" [stopOnHover]="true">
+          <div class="uk-inline" *ngFor="let state of indiaCases">
+              <mark style="background-color: azure !important;" (mouseover)="displayState(state)" (mouseout)="NoneStates()"> 
+                  <div class="uk-inline">
+                     <button class="uk-button uk-button-default coun"  type="button">
+                         {{state.name}} &nbsp; &nbsp; &nbsp; &nbsp;
+                         {{state.cases}}
+                     </button>
+                  </div>
+              </mark>
+          </div>
+     </ng-marquee>  
+  </div>
+  
+   <div class="uk-animation-slide-top uk-align-center" >
+         <div class="uk-card uk-card-default uk-width-1-4 uk-card-body boxShadow hoverBox uk-animation-slide-top uk-text-center" style="margin:auto">
+          <p class="ellip">{{state.name}}</p>
+          <p><b>Cases :</b>{{state.cases}}</p>
+          <p><b>Recovered : </b>{{state.recovered}}</p>
+          <p><b>Deaths : </b>{{state.deaths}}</p>
+         </div>
+   </div>
+
+</div>
+         
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>

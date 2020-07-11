@@ -1,1 +1,22 @@
+
 <app-navbar></app-navbar>
+<div #customLoadingTemplate>
+  <div  style="background-color: peachpuff;" *ngIf="countryStats!==undefined">
+    <ng-marquee speed="drowsy" duration="500s" [stopOnHover]="true" >
+        <div class="uk-inline" *ngFor="let country of countryStats">
+           <mark style="background-color: peachpuff !important;"> 
+              <div class="uk-inline">
+                    <button class="uk-button uk-button-default coun" (click)="div()" type="button">
+                        {{country.country_name}} &nbsp; &nbsp; &nbsp; &nbsp;
+                        {{country.cases}}
+                    </button>
+              </div>
+            </mark>
+        </div>
+        
+    </ng-marquee> 
+  </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+ 

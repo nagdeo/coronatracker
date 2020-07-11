@@ -8,14 +8,25 @@ import { CoronaserviceService } from 'src/app/coronaservice.service';
 })
 export class CountryComponent implements OnInit {
 
-  
-  constructor() { }
+  countryStats:any;
+  loading:boolean=true;
+  constructor(public corona:CoronaserviceService) { }
  
 
 
   ngOnInit(): void {
+    this.getCountryStats();
   }
-
+  getCountryStats(){
+    this.corona.getCountryStats().subscribe((res: any) => {
+        console.log(res);
+        this.countryStats=res.countries_stat;
+        this.loading=false;
+    });
+  }
   
+  div(){
+
+  }
  
 }
