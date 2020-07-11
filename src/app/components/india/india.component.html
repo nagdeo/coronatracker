@@ -2,27 +2,7 @@
 <div style="padding:5rem 11rem;">
     <input type="input" class="uk-align-center search" placeholder="Search State" name="name" id='name'
     (input)="dt.filterGlobal($event.target.value,'contains')" />
- 
-<!-- <table class="uk-table uk-table-striped" style="border: 1px solid #efefef;">
-    <thead>
-        <tr style="background-color: black;color: white !important;" >
-            <th class="uk-text-lead">State</th>
-            <th class="uk-text-lead">Cases</th>
-            <th class="uk-text-lead">Recovered</th>
-            <th class="uk-text-lead">Deaths</th>
-        </tr>
-    </thead>
-    <tbody>
-        
-        <tr  *ngFor="let cases of indiaCases; let i=index;">  
-            <td *ngIf="i<35">{{cases.name}}</td>
-            <td *ngIf="i<35">{{cases.cases}}</td>
-            <td *ngIf="i<35">{{cases.recovered}}</td>
-            <td *ngIf="i<35">{{cases.deaths}}</td>
-        </tr>
-        
-    </tbody>
-</table> -->
+
 <p-table #dt [columns]="cols" [value]="indiaCases" [responsive]="true" [scrollable]="true" scrollHeight="304px"
 >
 

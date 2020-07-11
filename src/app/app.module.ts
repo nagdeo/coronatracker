@@ -10,6 +10,7 @@ import { GlobalComponent } from './components/global/global.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {FormsModule} from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { ChartsModule } from 'ng2-charts'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TableModule } from 'primeng/table';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    TableModule
+    TableModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
